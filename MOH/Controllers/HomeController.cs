@@ -26,27 +26,6 @@ namespace MOH.Controllers
             return View();
         }
 
-        public IActionResult Users()
-        {
-            List<User> users = _context.User.ToList();
-            return View(users);
-        }
-
-        [HttpGet]
-        public IActionResult AddUser()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult AddUser(User user)
-        {
-            user.UserId = Guid.NewGuid();
-            _context.User.Add(user);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Users));
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

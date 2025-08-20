@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using static MOH.Models.Enum;
 
 namespace MOH.Models
 {
@@ -13,5 +14,9 @@ namespace MOH.Models
         [Required]
         public int Age { get; set; }
         public string? Gender { get; set; }
+        [Required]
+        public Status status { get; set; } = Status.Active;
+        [Required]
+        public UserType UserType { get; set; } = UserType.GeneralUser;
     }
 }

@@ -42,6 +42,12 @@ namespace MOH.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte>("UserType")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("status")
+                        .HasColumnType("tinyint");
+
                     b.HasKey("UserId");
 
                     b.ToTable("User");
