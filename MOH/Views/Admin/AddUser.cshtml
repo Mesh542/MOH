@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Add User</h1>
+</div>
+
+@model MOH.Models.User
+
+<form asp-action="AddUser" asp-controller="Admin">
+    <label>Name</label>
+    <input class="form-control" type="text" placeholder="Add name" asp-for="Name" />
+
+    <label class="mt-3">Surname</label>
+    <input class="form-control" type="text" placeholder="Add surname" asp-for="Surname" />
+
+    <label class="mt-3">Age</label>
+    <input class="form-control" type="number" placeholder="18" asp-for="Age" />
+
+    <label class="mt-3">Gender</label>
+    <input class="form-control" type="text" placeholder="Add gender" asp-for="Gender" />
+
+
+    <label class="mt-3">User Role</label>
+    <select class="form-control" asp-for="UserType">
+        <option value="1">General User</option>
+        <option value="2">Admin</option>
+    </select>
+
+    <label class="mt-3">Status</label>
+    <select class="form-control" asp-for="status">
+    <option value="1">Active</option>
+    <option value="2">InActive</option>
+    </select>
+
+    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+</form>
