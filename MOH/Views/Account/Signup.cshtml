@@ -1,0 +1,85 @@
+﻿@model MOH.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Signup";
+}
+
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-body-tertiary">
+    <div class="card shadow-lg border-0 rounded-4 w-100" style="max-width: 480px;">
+        <div class="card-header bg-primary text-white text-center rounded-top-4">
+            <h3 class="mb-0">Create an Account</h3>
+        </div>
+        <div class="card-body p-4 bg-body">
+            <form asp-action="Signup" method="post" novalidate>
+                
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label fw-semibold"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Enter your first name" />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Surname" class="form-label fw-semibold"></label>
+                    <input asp-for="Surname" class="form-control" placeholder="Enter your surname" />
+                    <span asp-validation-for="Surname" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Age" class="form-label fw-semibold"></label>
+                    <input asp-for="Age" class="form-control" type="number" placeholder="Enter your age" />
+                    <span asp-validation-for="Age" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Gender" class="form-label fw-semibold"></label>
+                    <select asp-for="Gender" class="form-select">
+                        <option value="">-- Select Gender --</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label fw-semibold"></label>
+                    <input asp-for="Email" class="form-control" type="email" placeholder="you@example.com" />
+                    <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Username" class="form-label fw-semibold"></label>
+                    <input asp-for="Username" class="form-control" placeholder="Choose a username" />
+                    <span asp-validation-for="Username" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label fw-semibold"></label>
+                    <input asp-for="Password" class="form-control" type="password" placeholder="Enter password" />
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ConfirmPassword" class="form-label fw-semibold"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" type="password" placeholder="Confirm password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                </div>
+
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg rounded-3">
+                        Sign Up
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center bg-body-tertiary rounded-bottom-4">
+            <small>Already have an account? 
+                <a asp-action="Login" class="text-primary fw-semibold">Login here</a>
+            </small>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
